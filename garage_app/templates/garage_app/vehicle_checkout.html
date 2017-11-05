@@ -1,0 +1,10 @@
+<!-- blog_app/templates/blog_app/post_delete.html -->
+{% extends 'garage_app/base.html' %}
+
+{% block content %}
+    <h1>Checkout vehicle</h1>
+    <form action="" method="post">{% csrf_token %}
+      <p>Checkout "{{ vehicle.reg_no }}"?</p>
+      <input type="submit" value="Confirm" />
+    </form>
+{% endblock %}

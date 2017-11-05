@@ -1,0 +1,15 @@
+<!-- blog_app/templates/blog_app/post_detail.html -->
+{% extends 'garage_app/base.html' %}
+
+{% block content %}
+  <div class="post-entry">
+    <h2>{{ vehicle.reg_no }}</h2>
+    <p>{{ vehicle.brand }}</p>
+    <p>{{ vehicle.model }}</p>
+  </div>
+
+  <a href="{% url 'vehicle_edit' vehicle.pk %}">+ Edit</a> 
+  |
+  <a href="{% url 'vehicle_checkout' vehicle.pk %}">+ Checkout</a>
+  
+{% endblock content %}

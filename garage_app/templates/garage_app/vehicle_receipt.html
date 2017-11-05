@@ -1,0 +1,14 @@
+{% extends 'garage_app/base.html' %}
+
+{% block content %}
+  <div class="post-entry">
+    <h2>Vehicle checked out</h2>
+    <p>{{ vehicle.reg_no }}</p>
+    <p>{{ vehicle.brand }}</p>
+    <p>{{ vehicle.model }}</p>
+    <p>Parking time: {{ parking_time }}</p>
+  </div>
+
+  <a href="{% url 'vehicle_list' %}">Back To List</a> 
+  
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'garage_app/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <a href="{% url 'vehicle_park' %}">Park vehicle</a>
+</div>
+
+<hr>
+
+<form action="{% url 'vehicle_list' %}" method="GET">
+    <span>Reg.No: <input id="search_regno" type="text" name="regno" value=""/></span>
+    <span>Type: {{ form.vehicle_type }}</span>
+    <span>Brand: <input id="search_brand" type="text" name="brand" value=""/></span>
+    <span>Model: <input id="search_model" type="text" name="model" value=""/></span>
+    <input type="submit" value="Search" />
+</form>
+
+<hr>
+<!-- <table> -->
+<table style="width:100%">
+    <tr>
+    <th>Reg.no.</th>
+    <th>Owner</th>
+    <th>Type</th>
+    <th>Brand</th> 
+    <th>Model</th>
+    <th></th>
+  </tr>
+  {% for object in object_list %}
+    <tr>
+      <td>{{ object.reg_no }}</td>
+      <td>{{ object.owner }}</td>
+      <td>{{ object.vehicle_type }}</td>
+      <td>{{ object.brand }}</td>
+      <td>{{ object.model }}</td>
+      <td>
+        <a href="{% url 'vehicle_detail' object.pk %}">Details</a> |
+        <a href="{% url 'vehicle_edit' object.pk %}">Edit</a> |
+        <a href="{% url 'vehicle_checkout' object.pk %}">Checkout</a>        
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock content %}
